@@ -1,6 +1,6 @@
-## Creating tables
+# Creating tables
 
-### The `CREATE TABLE` command
+## The `CREATE TABLE` command
 
 The `CREATE TABLE` command is used to make new database tables. An example:
 
@@ -15,7 +15,7 @@ CREATE TABLE students (
   cohort NUMBER NOT NULL,
   resume CLOB,
   financial_aid NUMBER(7,2),
-  enrolled_at TIMESTAMP NOT NULL
+  enrolled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 ```
 
@@ -28,15 +28,13 @@ CREATE TABLE students (
 * `cohort NUMBER NOT NULL`: The `cohort` column is an integer value and cannot be null.
 * `resume CLOB`: The `resume` column stores strings of arbitrary length. It can be null.
 * `financial_aid NUMBER(7,2)`: The `financial_aid` column is a decimal value with precision (total number of digits) of 7 and scale (digits right of the decimal point) of 2. It can be null.
-* `enrolled_at TIMESTAMP NOT NULL`: The `enrolled_at` column is a date and time value and cannot be null.
+* `enrolled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL`: The `enrolled_at` column is a date and time value and cannot be null. If a value is not given, the current date and time are used.
 
-### Deleting tables
+## Deleting tables
 
 To delete a table, use `DROP TABLE <tablename>`. If you want PostgreSQL to not throw an error if the table does not exist -- this is a nice thing to put at the top of a schema definition file -- use `DROP TABLE IF EXISTS <tablename>`.
 
-### References
-
-// TODO update to Oracle links
+## References
 
 * ["Creating tables" from the Oracle manual](https://docs.oracle.com/cd/B28359_01/server.111/b28310/tables003.htm#ADMIN01503)
 * [Oracle data types](https://docs.oracle.com/cd/B28359_01/server.111/b28286/sql_elements001.htm#SQLRF0021)

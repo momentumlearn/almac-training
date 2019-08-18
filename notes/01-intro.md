@@ -1,6 +1,6 @@
-## Databases, tables, rows, and columns
+# Databases, tables, rows, and columns
 
-### Terminology
+## Terminology
 
 * _schema_: a logical storage area for data collected into tables
 * _tablespaces_: a physical storage area on disk for data
@@ -16,7 +16,16 @@
 * _SQL_: Structured Query Language. A _declarative_ programming language for
   defining databases and extracting and manipulating information from them.
   
-### Setting up Oracle
+## Setting up Oracle
 
-// TODO explain how to set up a new user and schema
+To set up a new user and schema, you'll need to run several commands as an administrator. For all the below examples, `user` is whatever username you want.
+
+1. `CREATE USER user IDENTIFIED BY password;`
+2. `GRANT CONNECT TO user;`
+3. `GRANT CREATE SESSION GRANT ANY PRIVILEGE TO user;`
+4. `GRANT UNLIMITED TABLESPACE TO user;`
+
+## Resources
+
+* [Oracle blog article on managing users](https://blogs.oracle.com/sql/how-to-create-users-grant-them-privileges-and-remove-them-in-oracle-database)
 
