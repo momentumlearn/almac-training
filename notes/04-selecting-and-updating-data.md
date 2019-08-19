@@ -21,7 +21,7 @@ SELECT id, name, email FROM students;
 The `SELECT` command can have a clause starting with `WHERE` to specify conditions used to filter the rows returned. To get only students who have graduated, for example, you can write:
 
 ```sql
-SELECT * FROM students WHERE graduated = 't';
+SELECT * FROM students WHERE graduated = 1;
 ```
 
 Besides equality, there are the usual operators, like `>`, `>=`, `<`, and `<=`. There are also the operators `IS NULL` and `IS NOT NULL`, which you use instead of the equality operator to see if a field is null or not. Some examples:
@@ -90,16 +90,16 @@ The `LIMIT` clause can be used to limit the number of rows that are returned fro
     FROM students
    WHERE financial_aid IS NOT NULL
 ORDER BY financial_aid DESC
-   LIMIT 5;
+   FETCH FIRST 5 ROWS ONLY;
 
 -- Get the students 6-10
   SELECT name
        , financial_aid
     FROM students
    WHERE financial_aid IS NOT NULL
-ORDER BY financial_aid DESC
-   LIMIT 5
-  OFFSET 5;   
+ORDER BY financial_aid DESC   
+  OFFSET 5
+  FETCH NEXT 5 ROWS ONLY;   
 ```
 
 ### Updating data with `UPDATE`

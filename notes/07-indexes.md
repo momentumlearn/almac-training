@@ -26,6 +26,5 @@ Note: while indexes can speed up reading, you do not want to overuse them. Not o
 
 ### References
 
-// TODO Oracle
-
-* ["Indexes" from the PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/indexes.html)
+* [`CREATE INDEX` from the Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE)
+* [Oracle SQL Indexes - The Definitive Guide](https://www.databasestar.com/oracle-sql-indexes/)
