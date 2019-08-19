@@ -44,13 +44,13 @@ Conditions can be combined with `AND` and `OR` and parentheses can be used to en
 -- Find students that have graduated but have no resumé
 SELECT name
   FROM students
- WHERE graduated = 't'
+ WHERE graduated = 1
    AND resume IS NULL;
 
 -- Find students that have graduated or are in the most recent cohorts
 SELECT name, cohort
   FROM students
- WHERE graduated = 't'
+ WHERE graduated = 1
     OR cohort >= 10;
 ```
 
@@ -109,7 +109,7 @@ The `UPDATE` command updates data in a table. By default, all rows are updated, 
 ```sql
 -- Graduate cohort 11.
 UPDATE students
-   SET graduated = 't'
+   SET graduated = 1
  WHERE cohort = 11;
 ```
 
@@ -125,4 +125,6 @@ DELETE FROM students
 
 ### References
 
-// TODO add references to Oracle docs on SELECT, UPDATE, and DELETE
+* [`SELECT` - Oracle DB Reference](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_10002.htm#i2065646)
+* [`UPDATE` - Oracle DB Reference](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_10007.htm#i2067715)
+* [`DELETE` - Oracle DB Reference](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_8005.htm#i2117787)

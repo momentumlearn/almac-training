@@ -21,9 +21,10 @@
 To set up a new user and schema, you'll need to run several commands as an administrator. For all the below examples, `user` is whatever username you want.
 
 1. `CREATE USER user IDENTIFIED BY password;`
-2. `GRANT CONNECT TO user;`
-3. `GRANT CREATE SESSION GRANT ANY PRIVILEGE TO user;`
-4. `GRANT UNLIMITED TABLESPACE TO user;`
+2. `GRANT CONNECT, RESOURCE, DBA TO user;`
+3. `GRANT UNLIMITED TABLESPACE TO user;`
+
+**Important note:** This grants the user complete privileges on the database. Your DBA will likely grant you a limited set of privileges.
 
 ## Resources
 

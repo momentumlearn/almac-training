@@ -153,4 +153,5 @@ And now our database is normalized. By doing this, we've eliminated errors and i
 
 ## References
 
+* [An introduction to database normalization](http://phlonx.com/resources/nf3/)
 * [Guru99 on Database Normalization](https://www.guru99.com/database-normalization.html)

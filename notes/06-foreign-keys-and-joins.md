@@ -127,4 +127,4 @@ LIMIT 2;
 
 * [A Visual Representation of SQL Joins](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins)
 * ["Joins Between Tables" from the PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/tutorial-join.html)
-* [An introduction to database normalization](http://phlonx.com/resources/nf3/)
+
