@@ -6,7 +6,7 @@ INTO TABLE books REPLACE
 FIELDS TERMINATED BY X'9'
 (
   isbn, title, author, publisher, 
-  year_published INTEGER, 
+  year_published, 
   dewey_decimal, lcc_number, 
   subjects CHAR(4000)
 )
