@@ -1,0 +1,2 @@
+- WHERE EXISTS
+- select to_number(column_value) as IDs from xmltable('1,2,3,4,5');  

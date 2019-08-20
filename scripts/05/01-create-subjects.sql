@@ -25,7 +25,7 @@ CREATE TABLE bs AS (
   FROM books, xmltable(('"' || REPLACE(subjects, '|', '","') || '"')));
 
 INSERT INTO book_subjects
-  SELECT bs.book_id, subjects.id FROM bs INNER JOIN subjects ON bs.subjects = subjects.name;
+  (SELECT bs.book_id, (SELECT id FROM subjects WHERE subjects.name = bs.subjects) FROM bs);
 
 DROP TABLE bs;
 

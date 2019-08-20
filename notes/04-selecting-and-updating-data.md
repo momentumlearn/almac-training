@@ -79,9 +79,9 @@ ORDER BY financial_aid DESC;
 ORDER BY financial_aid DESC;
 ```
 
-### `LIMIT` and `OFFSET`
+### `FETCH FIRST` and `OFFSET`
 
-The `LIMIT` clause can be used to limit the number of rows that are returned from a `SELECT`. The `OFFSET` clause is used to skip a number of rows.
+The `FETCH FIRST` clause can be used to limit the number of rows that are returned from a `SELECT`. The `OFFSET` clause is used to skip a number of rows.
 
 ```sql
 -- Get the top 5 students receiving financial aid

@@ -61,6 +61,13 @@ CREATE TABLE movie_actors (
     CONSTRAINT movie_actors_pk PRIMARY KEY (movie_id, actor_id)
 );
 
+-- CREATE TABLE characters (
+--   id NUMBER PRIMARY KEY,
+--   movie_id NUMBER NOT NULL REFERENCES movies(id),
+--   actor_id NUMBER NOT NULL REFERENCES actors(id),
+--   character_name VARCHAR(200)
+-- );
+
 CREATE TABLE reviews (
     id NUMBER PRIMARY KEY,
     reviewer_id NUMBER NOT NULL REFERENCES reviewers(id),
