@@ -16,9 +16,10 @@ SELECT COUNT(*) FROM movies;
 
 ```sql
 -- Number of movies by studio
-SELECT studio, COUNT(*) AS count
+SELECT studios.name AS studio, COUNT(*) AS count
 FROM movies
-GROUP BY studio
+INNER JOIN studios ON studios.id = movies.studio_id
+GROUP BY studios.name
 ORDER BY count DESC;
 ```
 
@@ -31,15 +32,18 @@ ORDER BY count DESC;
 SELECT AVG(runtime_in_minutes) FROM movies;
 
 -- Average movie budget by studio
-SELECT studio, AVG(budget_in_millions) AS avg_budget
+SELECT studios.name AS studio, AVG(budget_in_millions) AS avg_budget
 FROM movies
-GROUP BY studio
+INNER JOIN studios ON studios.id = movies.studio_id
+GROUP BY studios.name
 ORDER BY avg_budget DESC;
 
 -- Average profit by studio
-SELECT studio, AVG(revenue_in_millions - budget_in_millions) AS avg_profit
+SELECT studios.name AS studio, 
+  AVG(revenue_in_millions - budget_in_millions) AS avg_profit
 FROM movies
-GROUP BY studio
+INNER JOIN studios ON studios.id = movies.studio_id
+GROUP BY studios.name
 ORDER BY avg_profit DESC;
 ```
 
@@ -49,10 +53,11 @@ ORDER BY avg_profit DESC;
 
 ```sql
 -- Average profit by studio
-SELECT studio, 
-  ROUND(AVG(revenue_in_millions - budget_in_millions), 3) AS avg_profit
+SELECT studios.name AS studio, 
+  ROUND(AVG(revenue_in_millions - budget_in_millions), 2) AS avg_profit
 FROM movies
-GROUP BY studio
+INNER JOIN studios ON studios.id = movies.studio_id
+GROUP BY studios.name
 ORDER BY avg_profit DESC;
 ```
 
@@ -65,13 +70,10 @@ ORDER BY avg_profit DESC;
 SELECT EXTRACT(year FROM release_date) AS year,
   ROUND(AVG(revenue_in_millions - budget_in_millions), 3) AS avg_profit
 FROM movies
-GROUP BY year
+GROUP BY EXTRACT(year FROM release_date)
 ORDER BY year;
 ```
+
 ### References
 
-// TODO Oracle
-
-* [Functions and Operators](https://www.postgresql.org/docs/9.6/static/functions.html)
-* [Aggregate Functions](https://www.postgresql.org/docs/9.6/static/functions-aggregate.html)
-* [Date/Time Functions](https://www.postgresql.org/docs/9.6/static/functions-datetime.html)
+* [Functions in the Oracle docs](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Functions.html#GUID-D079EFD3-C683-441F-977E-2C9503089982)
