@@ -22,12 +22,12 @@ The rules of first normal form are:
 
 First, let's get rid of the multiple values in each cell.
 
-| name  | immunization1 | immunization_date1 | immunization2 | immunization_date2 | immunization3 | immunization_date3 | birthday | home_phone | work_phone | employer |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
-| :---: | :-----------: | :----------------: | :-----------: | :----------------: | :-----------: | :----------------: | :------: | :--------: | :--------: | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: ||
-|  Chase Fuentes   |   Influenza   |     2017-11-05     |     TDAP      |     2017-11-05     |   Influenza   |     2018-10-22     | 1982-07-15 | 919-555-1111 | 919-555-1112 | Solutions Inc  |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
-| Ariel Washington |   Influenza   |     2018-10-30     |      MMR      |     2019-02-12     | Meningococcal |     2019-02-12     | 1978-04-09 | 919-555-2111 | 919-555-2112 | JRT Consulting |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
-|     Sage Kim     |     TDAP      |     2015-09-04     |   Influenza   |     2018-06-01     |               |                    | 1969-03-15 | 999-555-3111 | 919-555-1112 | Solutions Inc  |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
-|     Sage Kim     |   Influenza   |     2017-12-02     |               |                    |               |                    | 1994-07-20 | 999-555-4111 | 919-555-3112 |  PK Catering   |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
+|       name       | immunization1 | immunization_date1 | immunization2 | immunization_date2 | immunization3 | immunization_date3 |  birthday  |  home_phone  |  work_phone  |    employer    |
+| :--------------: | :-----------: | :----------------: | :-----------: | :----------------: | :-----------: | :----------------: | :--------: | :----------: | :----------: | :------------: |
+|  Chase Fuentes   |   Influenza   |     2017-11-05     |     TDAP      |     2017-11-05     |   Influenza   |     2018-10-22     | 1982-07-15 | 919-555-1111 | 919-555-1112 | Solutions Inc  |
+| Ariel Washington |   Influenza   |     2018-10-30     |      MMR      |     2019-02-12     | Meningococcal |     2019-02-12     | 1978-04-09 | 919-555-2111 | 919-555-2112 | JRT Consulting |
+|     Sage Kim     |     TDAP      |     2015-09-04     |   Influenza   |     2018-06-01     |               |                    | 1969-03-15 | 999-555-3111 | 919-555-1112 | Solutions Inc  |
+|     Sage Kim     |   Influenza   |     2017-12-02     |               |                    |               |                    | 1994-07-20 | 999-555-4111 | 919-555-3112 |  PK Catering   |
 
 There's an obvious problem here: if a patient has more than three immunizations, we have to add more columns to the table. We need to break these into multiple tables in order to handle any number of immunizations.
 
@@ -150,6 +150,10 @@ If a patient changes insurance companies, their co-pay may change. This introduc
 |   3   |  Viable   |  20   |
 
 And now our database is normalized. By doing this, we've eliminated errors and inconsistencies that can happen when data is inserted, updated, and removed, and made it easier to extend our tables.
+
+## Exercise
+
+Create a schema for a library, including patrons, copies of books, and checkouts.
 
 ## References
 

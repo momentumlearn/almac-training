@@ -74,6 +74,14 @@ GROUP BY EXTRACT(year FROM release_date)
 ORDER BY year;
 ```
 
+### Exercises
+
+- How to determine the average amount of time books are checked out?
+- How to determine the average amount of time a specific book is checked out?
+- How to determine the average amount of time a specific patron checks out books?
+
+
+
 ### References
 
 * [Functions in the Oracle docs](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Functions.html#GUID-D079EFD3-C683-441F-977E-2C9503089982)

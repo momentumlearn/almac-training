@@ -34,6 +34,16 @@ CREATE TABLE students (
 
 To delete a table, use `DROP TABLE <tablename>`. If you want PostgreSQL to not throw an error if the table does not exist -- this is a nice thing to put at the top of a schema definition file -- use `DROP TABLE IF EXISTS <tablename>`.
 
+## Exercise
+
+Create a table in your database for blog posts. They should have:
+
+- a title (max 200 characters)
+- a body (not limited by size)
+- a status (either 'draft' or 'published')
+- a datetime to be published
+- an author name (max 200 characters)
+
 ## References
 
 * ["Creating tables" from the Oracle manual](https://docs.oracle.com/cd/B28359_01/server.111/b28310/tables003.htm#ADMIN01503)

@@ -10,20 +10,10 @@ DROP TABLE reviews CASCADE CONSTRAINTS;
 DROP TABLE countries CASCADE CONSTRAINTS;
 WHENEVER SQLERROR EXIT SQL.SQLCODE;
 
-
-CREATE TABLE reviews (
-    id NUMBER PRIMARY KEY,
-    reviewer_id NUMBER NOT NULL,
-    movie_id NUMBER NOT NULL,
-    score NUMBER NOT NULL
-);
-
-
 CREATE TABLE actors (
     id NUMBER PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
-
 
 CREATE TABLE countries (
     id NUMBER PRIMARY KEY,
@@ -35,29 +25,18 @@ CREATE TABLE genres (
     name VARCHAR(20) NOT NULL
 );
 
-
 CREATE TABLE reviewers (
     id NUMBER PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     birthdate DATE NOT NULL,
-    country_id NUMBER,
+    country_id NUMBER REFERENCES countries(id),
     credits NUMBER DEFAULT 0 NOT NULL
 );
 
-
-CREATE TABLE movie_actors (
-    movie_id NUMBER NOT NULL,
-    actor_id NUMBER NOT NULL,
-    CONSTRAINT movie_actors_pk PRIMARY KEY (movie_id, actor_id)
+CREATE TABLE studios (
+    id NUMBER PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
 );
-
-
-CREATE TABLE movie_genres (
-    movie_id NUMBER NOT NULL,
-    genre_id NUMBER NOT NULL,
-    CONSTRAINT movie_genres_pk PRIMARY KEY (movie_id, genre_id)
-);
-
 
 CREATE TABLE movies (
     id NUMBER PRIMARY KEY,
@@ -67,12 +46,26 @@ CREATE TABLE movies (
     revenue_in_millions NUMBER(5,2),
     runtime_in_minutes NUMBER,
     average_critic_review NUMBER(2,1),
-    studio_id NUMBER
+    studio_id NUMBER REFERENCES studios(id)
 );
 
-CREATE TABLE studios (
+CREATE TABLE movie_genres (
+    movie_id NUMBER NOT NULL REFERENCES movies(id),
+    genre_id NUMBER NOT NULL REFERENCES genres(id),
+    CONSTRAINT movie_genres_pk PRIMARY KEY (movie_id, genre_id)
+);
+
+CREATE TABLE movie_actors (
+    movie_id NUMBER NOT NULL REFERENCES movies(id),
+    actor_id NUMBER NOT NULL REFERENCES actors(id),
+    CONSTRAINT movie_actors_pk PRIMARY KEY (movie_id, actor_id)
+);
+
+CREATE TABLE reviews (
     id NUMBER PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    reviewer_id NUMBER NOT NULL REFERENCES reviewers(id),
+    movie_id NUMBER NOT NULL REFERENCES movies(id),
+    score NUMBER NOT NULL
 );
 
 EXIT;

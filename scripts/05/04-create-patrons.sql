@@ -9,7 +9,7 @@ CREATE TABLE patrons (
   email VARCHAR(255) NOT NULL UNIQUE
 );
 
-ALTER TABLE books ALTER COLUMN checked_out_by NUMBER REFERENCES patrons(id);
+ALTER TABLE books MODIFY checked_out_by NUMBER REFERENCES patrons(id);
 
 insert into patrons (name, email) values ('Guido Newick', 'gnewick0@cdc.gov');
 insert into patrons (name, email) values ('Shayna Sonschein', 'ssonschein1@infoseek.co.jp');

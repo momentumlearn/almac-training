@@ -26,6 +26,10 @@ To set up a new user and schema, you'll need to run several commands as an admin
 
 **Important note:** This grants the user complete privileges on the database. Your DBA will likely grant you a limited set of privileges.
 
+## Exercise
+
+Make sure you have access to an Oracle database.
+
 ## Resources
 
 * [Oracle blog article on managing users](https://blogs.oracle.com/sql/how-to-create-users-grant-them-privileges-and-remove-them-in-oracle-database)

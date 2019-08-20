@@ -72,14 +72,6 @@ To Have and Have Not Bronze Temple Film Productions
 Honey		     Emerald Brothers Film Company
 ```
 
-(Alternately, we can use multiple tables in our `SELECT` statement and use the `WHERE` clause to connect these tables by value. This is sometimes referred to as an _equijoin_.)
-
-```sql
-SELECT movies.title, studios.name AS studio
-FROM movies, studios
-WHERE movies.studio_id = studios.id;
-```
-
 There's a lot to unpack in this one statement. First, see the `AS` clause after `studios.name`. We can use `AS` in several contexts to give a new name to a value. Then, look at the `JOIN` clause. We state a table we want to join to our table from our `FROM` clause, and then use `ON` to specify the condition on which it should be joined.
 
 This style of join is called an _inner join_. With an inner join, only rows that have a match on both sides of the `ON` clause are displayed. If we had movies with no `studio_id`, they would not appear, and if a movie had a `studio_id` that did not have an `id` in the `studios` table, that row would also not appear. This is often what we want, but not always.
@@ -141,6 +133,13 @@ FETCH FIRST 3 ROWS ONLY;
 ```
 
 `RIGHT JOIN` and `FULL JOIN` also exist, allowing for all rows on the right side of the join, or all rows on both sides of the join respectively.
+
+### Exercises
+
+- How to determine if a book is in stock?
+- How to determine if a book is overdue?
+- How to determine who has a book?
+- How to determine if a patron has overdue books?
 
 ### References
 
