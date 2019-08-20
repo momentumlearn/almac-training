@@ -136,10 +136,27 @@ FETCH FIRST 3 ROWS ONLY;
 
 ### Exercises
 
-- How to determine if a book is in stock?
-- How to determine if a book is overdue?
-- How to determine who has a book?
-- How to determine if a patron has overdue books?
+- What books are checked out?
+
+```sql
+SELECT books.title, patrons.name, checkouts.checked_out_at + collections.checkout_duration AS due_date
+FROM books
+INNER JOIN checkouts ON books.id = checkouts.book_id
+INNER JOIN patrons ON patrons.id = checkouts.patron_id
+INNER JOIN collections ON books.collection_id = collections.id
+WHERE checkouts.checked_in_at IS NULL;
+```
+
+- What books does a particular patron have checked out?
+
+```sql
+SELECT books.title, checkouts.checked_out_at + collections.checkout_duration AS due_date
+FROM patrons
+INNER JOIN checkouts ON patrons.id = checkouts.patron_id
+INNER JOIN books ON books.id = checkouts.book_id
+INNER JOIN collections ON books.collection_id = collections.id
+WHERE patrons.id = 3;
+```
 
 ### References
 

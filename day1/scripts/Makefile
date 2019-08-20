@@ -17,6 +17,7 @@ all: 02 05 06
 	sqlplus $(ORCL_USER)/$(ORCL_PASS)@$(ORCL_HOST)/$(ORCL_DB) @05/03-create-publishers.sql
 	sqlplus $(ORCL_USER)/$(ORCL_PASS)@$(ORCL_HOST)/$(ORCL_DB) @05/04-create-patrons.sql
 	sqlplus $(ORCL_USER)/$(ORCL_PASS)@$(ORCL_HOST)/$(ORCL_DB) @05/05-create-collections.sql
+	sqlplus $(ORCL_USER)/$(ORCL_PASS)@$(ORCL_HOST)/$(ORCL_DB) @05/06-create-checkouts.sql
 
 06:
 	sqlplus $(ORCL_USER)/$(ORCL_PASS)@$(ORCL_HOST)/$(ORCL_DB) @06/01-movies-schema.sql

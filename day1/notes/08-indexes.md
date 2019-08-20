@@ -51,6 +51,14 @@ CREATE BITMAP INDEX idx_books_collection ON books (collection_id);
 
 If you use a column (or a calculation) in a `WHERE` query often, you want to index it. If you join on a column, you want to index that.
 
+## Nullable columns
+
+Oracle will not index a nullable column by default. To index it, add a constant to the index.
+
+```sql
+CREATE INDEX idx_movies_studio ON movies (studio_id, '1');
+```
+
 ## References
 
 - Determine indexes for library tables and movie tables.
